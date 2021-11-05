@@ -8,7 +8,7 @@ pygame.init ()
 
 screen = pygame.display.set_mode((800, 800))
 
-#Icone du jeu
+# Icone du jeu
 pygame.display.set_caption('Dead By Deadline')
 <NomDeVariablePourImage> = pygame.image.load('<oùElleEst>')
 pygame.display.set_icon(<NomDeVariablePourImage>)
@@ -49,13 +49,17 @@ while running :
   
   
   
-  #Pour rajouter des bords :   
+  # Pour rajouter des bords :   
   if playerX <= 0:
         playerX =0
     elif playerX >= <oùOnVeut-TailleDuPerso>:
         playerX = <oùOnVeut-TailleDuPerso>
   
-  #Collision
+  # Collision
   
   def <variableCollision( GentilX,GentilY , EnnemieX, EnnemieY):
          distance = math.sqrt(math.pow(ennemieX - gentilX) / 2) + math.pow(EnnemieY - GentilY) / 2
+         if distance < <distanceSouhaité> :
+              return True
+         else :
+              return False
