@@ -214,3 +214,50 @@ K_BREAK               break
 K_MENU                menu
 K_POWER               power
 K_EURO                Euro
+
+ 
+  # Instancier le player
+playerImg = pygame.image.load('chèvre.jpg')
+playerX = 200
+playerY = 200
+playerX_change = 0
+playerY_change = 0
+
+def player(x, y):
+    screen.blit(playerImg, (x, y))
+
+running = True 
+
+while running :
+
+    screen.fill((255, 255, 255))
+    
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False 
+
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT :
+                playerX_change = -0.2
+            if event.key == pygame.K_RIGHT:
+                playerX_change = 0.2
+            if event.key == pygame.K_UP:
+                playerY_change = -0.2
+            if event.key == pygame.K_DOWN:
+                playerY_change = 0.2
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                playerX_change = 0
+            if event.key == pygame.K_UP or event.key == pygame.K_DOWN:
+                playerY_change = 0
+
+        if playerX <= 0:
+            playerX =0
+        elif playerX >= <-TailleDuPerso>:
+            playerX = <oùOnVeut-TailleDuPerso>
+
+    playerX += playerX_change
+    playerY += playerY_change
+    player(playerX, playerY)
+    pygame.display.update()
+  
